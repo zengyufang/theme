@@ -1,0 +1,151 @@
+<DOCTYPE HTML>
+<html lang="zh_cn">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link href="./js/bootstrap-3.3.7-dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="./styles/common.less" type="text/css" rel="stylesheet/less">
+        <script>
+            if(localStorage.getItem("theme") !== null){
+                var theme = localStorage.getItem("theme");
+                document.write("<link id='theme' href='./styles/theme/"+theme+".css' type='text/css' rel='stylesheet'>");
+            }else{
+                document.write("<link id='theme' href='./styles/theme/theme_a.css' type='text/css' rel='stylesheet'>"); 
+            }
+        </script>
+        
+        <!--IE8只能支持jQuery1.9-->
+        <!--[if lte IE 8]>
+        <script src="http://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+        <![endif]-->
+        <script src="./js/less-2.5.3/less.min.js"></script>
+        <script src="./js/jquery-3.2.1.js"></script>
+        <script src="./js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <head>
+            <div class="head_wrap clearfix">
+                <div class="head_wrap_left">
+                    <span class="logo"></span>
+                    <span class="title" id="headTitle">ZYF STYLE</span>
+                </div>
+                <div class="head_wrap_right">
+                     <div class="icon_box" id="icon_box">
+                        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                    </div>
+                    <div class="icon_box" id="setting_box">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </div>
+                    <div class="setting_wrap">
+                        <div class="setting_theme">
+                            <h2>主题切换</h2>
+                            <div class="color_box theme_a">
+                                <div class="color_box1 clearfix">
+                                    <span class="color_span1"></span>
+                                    <span class="color_span2"></span>
+                                </div>
+                                <div class="color_box2 clearfix">
+                                   <span class="color_span3"></span>
+                                    <span class="color_span4"></span> 
+                                </div>
+                            </div>
+                            <div class="color_box theme_b">
+                                <div class="color_box1 clearfix">
+                                    <span class="color_span1"></span>
+                                    <span class="color_span2"></span>
+                                </div>
+                                <div class="color_box2 clearfix">
+                                   <span class="color_span3"></span>
+                                    <span class="color_span4"></span> 
+                                </div>
+                            </div>
+                            <div class="color_box theme_c">
+                                <div class="color_box1 clearfix">
+                                    <span class="color_span1"></span>
+                                    <span class="color_span2"></span>
+                                </div>
+                                <div class="color_box2 clearfix">
+                                   <span class="color_span3"></span>
+                                    <span class="color_span4"></span> 
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </head>
+        <main class="main clearfix">
+            <div class="left_menu">
+                <ul>
+                    <li>
+                        <div class="menu_div">
+                            <a class="icon_a" data-toggle="collapse" href="#menu1" aria-expanded="false" aria-controls="menu1"><span class="glyphicon glyphicon-heart"></span></a>
+                            <a class="menu_a" role="button" data-toggle="collapse" href="#menu1" aria-expanded="false" aria-controls="menu1">
+                                我的主页
+                            </a>
+                        </div >
+                    </li>
+                    <li>
+                        <div class="menu_div">
+                            <a class="icon_a" data-toggle="collapse" href="#menu1" aria-expanded="false" aria-controls="menu2"><span class="glyphicon glyphicon-th-large"></span></a>
+                            <a class="menu_a" type="button" data-toggle="collapse" href="#menu2" aria-expanded="false" aria-controls="menu2">
+                                成长记录
+                            </a>
+                        </div>
+                        <div class="collapse" id="menu2">
+                            <ul>
+                                <li>
+                                    <a>教育经历</a>
+                                </li>
+                                <li>
+                                    <a>工作经历</a>
+                                </li>
+                                <li>
+                                    <a>感情经历</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                
+
+            </div>
+            <div class="right_content">
+                <h2>工作台</h2>
+                <div class="Website_traffic">
+                    <div class="website_head">
+                        <h3>网站流量</h3>
+                    </div>
+                    <div class="website_content" id="website_chart"></div>
+                </div>
+            </div>
+        </main>
+        <script src="./js/index.js"></script>
+        <script src="./js/echarts/echarts.min.js"></script>
+        <script>
+            var myChart = echarts.init(document.getElementById("website_chart"));
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: 'ECharts 入门示例'
+                },
+                tooltip: {},
+                legend: {
+                    data:['销量']
+                },
+                xAxis: {
+                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                },
+                yAxis: {},
+                series: [{
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+    </body>
+</html>

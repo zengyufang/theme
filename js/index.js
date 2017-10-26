@@ -24,10 +24,9 @@ $(function(){
     })
     $(".color_box").each(function(){
         $(this).on("click",function(){
-            var aa = ($(this).attr("class"));
-            var bb = aa.split(" ");
-            localStorage.setItem("theme",bb[1]);
-            $("#theme").attr("href","./styles/theme/"+bb[1]+".css");
+            var aa = ($(this).attr("data-theme"));
+            localStorage.setItem("theme",aa);
+            $("#theme").attr("href","./styles/theme/"+aa+".css");
             if($(".setting_wrap").height() > 2){
                 $(".setting_wrap").animate({"height":"0px"});
             }else{
